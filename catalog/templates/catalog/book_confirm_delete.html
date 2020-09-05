@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Deleting {{ book }}</title>{% endblock %}
+
+{% block content%}
+	{% if perms.catalog.can_mark_returned %}
+		<h1>Delete Book</h1>
+		<p>Deleting {{ book }}?</p>
+
+		<form action="" method="POST">
+			{% csrf_token %}
+			<input type="submit" value="Yes">
+		</form>
+	{% else %}
+		<p>you dont have access to this section</p>
+	{% endif %}
+
+{% endblock %}

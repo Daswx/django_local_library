@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>New Author</title>{% endblock %}
+
+{% block content %}
+	
+	{% if perms.catalog.can_mark_returned %}
+		<h1>Creating New Author</h1>
+		<form action="" method="POST">
+			{% csrf_token %}
+			<table>
+				{{ form.as_table }}
+			</table>
+			<input type="submit" value="Submit">
+		</form>
+	{% else %}
+		<p>you dont have access to this section</p>
+	{% endif %}
+
+{% endblock %}

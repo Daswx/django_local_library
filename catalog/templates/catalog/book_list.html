@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>List of Books</title>{% endblock %}
+
+{% block content %}
+<h1>List of Books</h1>
+<ul>
+	{% for book in name_of_the_books %}
+	<li>
+		<a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }}) {% if perms.catalog.can_mark_returned %} - <a href="{% url 'book-update' book.pk %}">Update</a> - <a href="{% url 'book-delete' book.pk %}">Delete</a> {% endif %}
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

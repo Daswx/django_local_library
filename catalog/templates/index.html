@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Local Library</title>{% endblock %}
+
+{% block content %}
+<h1>Local Library Home</h1>
+<p>Welcome to the library</p>
+<h2>Dynamic Content</h2>
+<ul>
+	<li><strong>Books:</strong> {{ num_books }}</li>
+	<li><strong>Copies:</strong> {{ num_instances }}</li>
+	<li><strong>Copies Available:</strong> {{ num_instances_available }}</li>
+	<li><strong>Autors:</strong> {{ num_authors }}</li>
+</ul>
+
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}
